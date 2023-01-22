@@ -1,0 +1,28 @@
+.form {
+  width: 500px;
+  border: 1px solid black;
+  padding: 20px;
+}
+.label {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.input {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 16px;
+}
+.formButton {
+  display: block;
+  padding: 5px 13px;
+  font-size: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.formButton:hover,
+.formButton:focus {
+  background-color: blue;
+  border: none;
+  color: white;
+}
