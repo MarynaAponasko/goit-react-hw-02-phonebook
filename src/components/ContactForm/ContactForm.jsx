@@ -10,8 +10,10 @@ class ContactForm extends Component {
   };
   handlerSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
-    this.reset();
+    const resultSubmit = this.props.onSubmit(this.state);
+    if (resultSubmit) {
+      this.reset();
+    }
   };
 
   handlerChangeState = e => {

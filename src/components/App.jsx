@@ -10,21 +10,26 @@ class App extends Component {
     contacts: [],
     filter: '',
   };
-
+  isDublicate(name) {
+    const result = this.state.contacts.find(contact => contact.name === name);
+    return Boolean(result);
+  }
   addNewContact = ({ name, number }) => {
-    if (this.state.contacts.find(contact => contact.name === name)) {
-      return alert(`${name} is already in contacts.`);
-    } else {
+    if (this.isDublicate(name)) {
+      alert(`${name} is already in contacts.`);
+      return false;
+    }
+    this.setState(prevState => {
+      const { contacts } = prevState;
+
       const newContact = {
         id: nanoid(),
         name,
         number,
       };
-
-      this.setState(({ contacts: prevState }) => ({
-        contacts: [...prevState, newContact],
-      }));
-    }
+      return { contacts: [...contacts, newContact] };
+    });
+    return true;
   };
 
   deleteContact = contactId => {
